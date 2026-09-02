@@ -222,20 +222,20 @@
 
 <div class="page">
 
-  <div class="note-pill">📌 14 of 25 cards documented in detail (those with relevant narrative/blocker activity). The remaining cards sit in no-news statuses (New/Closed/Cancelled) and are not detailed here.</div>
+  <div class="note-pill">📌 13 of 25 cards documented in detail (those with relevant narrative/blocker activity). The remaining cards sit in no-news statuses (New/Closed/Cancelled) and are not detailed here. Note: LUNA-12549 (CC00593 - Atomic Absorption) was excluded — it belongs to Sprint 35, not Sprint 22.</div>
 
   <!-- KPI ROW -->
   <div class="section-title">Overall Metrics</div>
   <div class="kpi-grid">
     <div class="kpi-card blue">
       <div class="kpi-label">Cards Documented</div>
-      <div class="kpi-value">14</div>
+      <div class="kpi-value">13</div>
       <div class="kpi-sub">out of 25 total issues</div>
     </div>
     <div class="kpi-card red">
       <div class="kpi-label">Blocked</div>
-      <div class="kpi-value">4</div>
-      <div class="kpi-sub">2 critical &gt;10 business days</div>
+      <div class="kpi-value">3</div>
+      <div class="kpi-sub">1 critical &gt;10 business days</div>
     </div>
     <div class="kpi-card yellow">
       <div class="kpi-label">Mismatches Found</div>
@@ -262,20 +262,20 @@
   <!-- CHARTS ROW -->
   <div class="row2">
     <div class="card">
-      <h3>Status Breakdown (14 cards)</h3>
+      <h3>Status Breakdown (13 cards)</h3>
       <div class="card-sub">Distribution of official Jira status across documented cards</div>
       <div class="donut-wrap">
         <svg class="donut" width="180" height="180" viewBox="0 0 180 180">
-          <circle cx="90" cy="90" r="80" fill="none" stroke="#cf222e" stroke-width="20" stroke-dasharray="143.6 359.0" stroke-dashoffset="0"/>
-          <circle cx="90" cy="90" r="80" fill="none" stroke="#1d6cc8" stroke-width="20" stroke-dasharray="107.7 394.9" stroke-dashoffset="-143.6"/>
-          <circle cx="90" cy="90" r="80" fill="none" stroke="#e0762e" stroke-width="20" stroke-dasharray="107.7 394.9" stroke-dashoffset="-251.3"/>
-          <circle cx="90" cy="90" r="80" fill="none" stroke="#d4a017" stroke-width="20" stroke-dasharray="35.9 466.8" stroke-dashoffset="-359.0"/>
-          <circle cx="90" cy="90" r="80" fill="none" stroke="#8250df" stroke-width="20" stroke-dasharray="35.9 466.8" stroke-dashoffset="-394.9"/>
-          <circle cx="90" cy="90" r="80" fill="none" stroke="#2da44e" stroke-width="20" stroke-dasharray="35.9 466.8" stroke-dashoffset="-430.8"/>
-          <circle cx="90" cy="90" r="80" fill="none" stroke="#57606a" stroke-width="20" stroke-dasharray="35.9 466.8" stroke-dashoffset="-466.8"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#cf222e" stroke-width="20" stroke-dasharray="116.0 386.7" stroke-dashoffset="0"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#1d6cc8" stroke-width="20" stroke-dasharray="116.0 386.7" stroke-dashoffset="-116.0"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#e0762e" stroke-width="20" stroke-dasharray="116.0 386.7" stroke-dashoffset="-232.0"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#d4a017" stroke-width="20" stroke-dasharray="38.7 464.0" stroke-dashoffset="-348.0"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#8250df" stroke-width="20" stroke-dasharray="38.7 464.0" stroke-dashoffset="-386.7"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#2da44e" stroke-width="20" stroke-dasharray="38.7 464.0" stroke-dashoffset="-425.3"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#57606a" stroke-width="20" stroke-dasharray="38.7 464.0" stroke-dashoffset="-464.0"/>
         </svg>
         <div class="legend">
-          <div class="legend-item"><span class="legend-dot" style="background:#cf222e;"></span> Blocked <span class="legend-count">4</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#cf222e;"></span> Blocked <span class="legend-count">3</span></div>
           <div class="legend-item"><span class="legend-dot" style="background:#1d6cc8;"></span> Development <span class="legend-count">3</span></div>
           <div class="legend-item"><span class="legend-dot" style="background:#e0762e;"></span> Draft Requirements <span class="legend-count">3</span></div>
           <div class="legend-item"><span class="legend-dot" style="background:#d4a017;"></span> Verification Backlog <span class="legend-count">1</span></div>
@@ -305,13 +305,7 @@
           <div class="bar-track"><div class="bar-fill" style="width:17%; background:linear-gradient(90deg,#2da44e,#1a7f37);">1</div></div>
           <div class="bar-count">1</div>
         </div>
-        <div class="bar-row">
-          <div class="bar-label">⚫ No sprint tag</div>
-          <div class="bar-track"><div class="bar-fill" style="width:17%; background:linear-gradient(90deg,#8a8f98,#57606a);">1</div></div>
-          <div class="bar-count">1*</div>
-        </div>
       </div>
-      <div style="font-size:11px; color:var(--muted); margin-top:10px;">*<a href="https://erpservices.atlassian.net/browse/LUNA-12549" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-12549</a> (CC00593) does not carry an "Approval/Build/Verification Sprint" tag in its phase field — worth confirming in Jira whether it fell out of active sprint tracking.</div>
     </div>
   </div>
 
@@ -321,31 +315,24 @@
     <div class="card-sub">Red dashed line = 10 business day critical threshold</div>
     <div class="aging-chart">
       <div class="aging-row">
-        <div class="aging-label"><a href="https://erpservices.atlassian.net/browse/LUNA-12549" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-12549</a> · CC00593</div>
-        <div class="aging-track">
-          <div class="aging-threshold-line" style="left:20.4%;"><span class="aging-threshold-label">10d threshold</span></div>
-          <div class="aging-fill" style="width:100%; background:linear-gradient(90deg,#e35d5d,#a8000a);">49 days</div>
-        </div>
-      </div>
-      <div class="aging-row">
         <div class="aging-label"><a href="https://erpservices.atlassian.net/browse/LUNA-13212" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-13212</a> · G2535</div>
         <div class="aging-track">
-          <div class="aging-threshold-line" style="left:20.4%;"></div>
-          <div class="aging-fill" style="width:31%; background:linear-gradient(90deg,#e35d5d,#a8000a);">15 days</div>
+          <div class="aging-threshold-line" style="left:66.7%;"><span class="aging-threshold-label">10d threshold</span></div>
+          <div class="aging-fill" style="width:100%; background:linear-gradient(90deg,#e35d5d,#a8000a);">15 days</div>
         </div>
       </div>
       <div class="aging-row">
         <div class="aging-label"><a href="https://erpservices.atlassian.net/browse/LUNA-12437" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-12437</a> · CC10003</div>
         <div class="aging-track">
-          <div class="aging-threshold-line" style="left:20.4%;"></div>
-          <div class="aging-fill" style="width:7%; background:linear-gradient(90deg,#4fae63,#1a7f37); justify-content:flex-start; padding-left:8px;">3d</div>
+          <div class="aging-threshold-line" style="left:66.7%;"></div>
+          <div class="aging-fill" style="width:20%; background:linear-gradient(90deg,#4fae63,#1a7f37); justify-content:flex-start; padding-left:8px;">3d</div>
         </div>
       </div>
       <div class="aging-row">
         <div class="aging-label"><a href="https://erpservices.atlassian.net/browse/LUNA-16083" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-16083</a> · CM01534</div>
         <div class="aging-track">
-          <div class="aging-threshold-line" style="left:20.4%;"></div>
-          <div class="aging-fill" style="width:5%; background:linear-gradient(90deg,#4fae63,#1a7f37); justify-content:flex-start; padding-left:8px;">2d</div>
+          <div class="aging-threshold-line" style="left:66.7%;"></div>
+          <div class="aging-fill" style="width:13%; background:linear-gradient(90deg,#4fae63,#1a7f37); justify-content:flex-start; padding-left:8px;">2d</div>
         </div>
       </div>
     </div>
@@ -479,32 +466,6 @@
   <!-- BLOCKED WITH AGING -->
   <div class="section-title">🚫 Blocked Cards — Sorted by Aging (Business Days)</div>
   <div class="blocked-section">
-
-    <div class="main-card-block critical">
-      <div class="main-card-header">
-        <span class="blocked-pill">🚨 CRITICAL</span>
-        <a class="main-card-key" href="https://erpservices.atlassian.net/browse/LUNA-12549" target="_blank">LUNA-12549</a>
-        <span class="main-card-title">CC00593 - Atomic Absorption</span>
-        <div style="text-align:right;"><div class="main-card-days">49</div><div class="main-card-days-label">business days</div></div>
-      </div>
-      <div class="main-card-body">
-        <div class="info-grid">
-          <div class="info-item"><div class="info-label">Assignee</div><div class="info-value">Keith Parsons</div></div>
-          <div class="info-item"><div class="info-label">Priority</div><div class="info-value">Medium</div></div>
-          <div class="info-item"><div class="info-label">Blocked Since</div><div class="info-value">Jun 25, 2026</div></div>
-          <div class="info-item"><div class="info-label">No Technical Comments</div><div class="info-value">~60 calendar days</div></div>
-        </div>
-        <div class="blocker-box">
-          <strong>Root Cause &amp; Narrative</strong>
-          Jul 2, 2026: Joseph Weir and Rodrigo Aguilar froze the method configuration due to an unresolved discrepancy between the Perkin instrument driver (PR5) and standardization toward Agilent (API). No technical comments have been logged since then — only automatic attribute updates in August.
-          <br><br>
-          <strong>Ball is with:</strong> Instrument Team &amp; SMEs (Keith Parsons, Nilo Ramos, David Harvey) — to define the roadmap and availability of the Agilent AA driver.
-          <br><br>
-          <strong>Most likely next action:</strong> Formal decision on the Agilent AA driver to resume the build.
-        </div>
-        <div style="margin-top:10px; font-size:11.5px; color:var(--muted);">Blocked subtasks: <a href="https://erpservices.atlassian.net/browse/LUNA-31872" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-31872</a> (Design Spec, since Jun 25), <a href="https://erpservices.atlassian.net/browse/LUNA-31871" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-31871</a> (Build Rework, since Jun 25), <a href="https://erpservices.atlassian.net/browse/LUNA-24682" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-24682</a> (Instrument Driver, since Jun 1) — all owned by Rodrigo Aguilar / Nilo Ramos.</div>
-      </div>
-    </div>
 
     <div class="main-card-block critical">
       <div class="main-card-header">
