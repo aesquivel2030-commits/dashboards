@@ -13,11 +13,8 @@
     --purple: #6639ba; --purple-bg: #ede4ff; --purple-mid: #8250df;
     --orange: #bc4c00; --orange-bg: #ffeee0; --orange-mid: #e0762e;
     --grey: #57606a; --grey-bg: #f0f0f0;
-    --card-bg: #ffffff;
-    --page-bg: #f6f8fa;
-    --border: #d0d7de;
-    --text: #1f2328;
-    --muted: #57606a;
+    --card-bg: #ffffff; --page-bg: #f6f8fa; --border: #d0d7de;
+    --text: #1f2328; --muted: #57606a;
     --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,29 +26,58 @@
   }
   .header h1 { font-size: 22px; font-weight: 700; letter-spacing: -.3px; }
   .header .meta { font-size: 12px; opacity: .75; margin-top: 4px; }
-  .badge-team {
-    background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35);
-    border-radius: 20px; padding: 6px 18px; font-size: 13px; font-weight: 600;
-  }
+  .badge-team { background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35);
+    border-radius: 20px; padding: 6px 18px; font-size: 13px; font-weight: 600; }
   .page { max-width: 1340px; margin: 0 auto; padding: 24px 24px 48px; }
   .section-title {
     font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px;
     color: var(--muted); margin-bottom: 12px; padding-bottom: 6px;
     border-bottom: 2px solid var(--border); display: flex; align-items: center; justify-content: space-between;
   }
-  .note-pill {
-    background: var(--blue-bg); color: var(--blue); border-radius: 20px; padding: 6px 14px;
-    font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;
-    margin-bottom: 20px; border: 1px solid #b6d4fe;
-  }
+  /* ===== AT A GLANCE ===== */
+  .glance { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px;
+    padding: 18px 20px 16px; margin-bottom: 26px; box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    border-top: 4px solid #1d4ed8; }
+  .glance-top { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+  .glance-title { font-size: 16px; font-weight: 800; letter-spacing:-.2px; }
+  .glance-date { font-size: 11.5px; color: var(--muted); font-weight:600; }
+  .healthbar { display:flex; height: 34px; border-radius: 8px; overflow:hidden; gap:2px; }
+  .hb-seg { display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:13px; }
+  .hb-red    { background: linear-gradient(90deg,#e35d5d,#a8000a); }
+  .hb-orange { background: linear-gradient(90deg,#ef8a5a,#bc4c00); }
+  .hb-slate  { background: repeating-linear-gradient(45deg,#8c97a3,#8c97a3 6px,#727d89 6px,#727d89 12px); }
+  .hb-yellow { background: linear-gradient(90deg,#e8c05a,#9a6700); }
+  .hb-green  { background: linear-gradient(90deg,#4fae63,#1a7f37); }
+  .hb-legend { display:flex; flex-wrap:wrap; gap:14px; margin-top:9px; font-size:11.5px; color:var(--muted); font-weight:600; }
+  .hb-legend i.d { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:5px; }
+  .hb-legend i.red{background:#cf222e;} .hb-legend i.orange{background:#e0762e;}
+  .hb-legend i.slate{background:#7d8894;} .hb-legend i.yellow{background:#d4a017;} .hb-legend i.green{background:#2da44e;}
+  .glance-cols { display:grid; grid-template-columns: repeat(4,1fr); gap:12px; margin-top:16px; }
+  @media (max-width: 1100px){ .glance-cols { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width: 640px){ .glance-cols { grid-template-columns:1fr; } }
+  .gcol { border-radius:10px; padding:12px 14px; border:1px solid var(--border); }
+  .gcol-red    { background:#fff6f6; border-color:#fca5a5; }
+  .gcol-orange { background:#fff8f2; border-color:#f8c091; }
+  .gcol-slate  { background:#f7f8f9; border-color:#c9d0d7; }
+  .gcol-green  { background:#f4fdf6; border-color:#86efac; }
+  .gcol-head { font-size:12px; font-weight:800; margin-bottom:9px; letter-spacing:.2px; }
+  .gcol-red .gcol-head{color:var(--red);} .gcol-orange .gcol-head{color:var(--orange);}
+  .gcol-slate .gcol-head{color:#5a6673;} .gcol-green .gcol-head{color:var(--green);}
+  .gitem { font-size:12px; padding:6px 0; border-top:1px dashed rgba(0,0,0,.09); line-height:1.45; }
+  .gitem:first-of-type { border-top:none; }
+  .gitem b { color: var(--blue); font-weight:800; }
+  .gitem span { font-weight:700; font-size:11px; }
+  .gcol-red .gitem span{color:var(--red);} .gcol-orange .gitem span{color:var(--orange);}
+  .gcol-slate .gitem span{color:#5a6673;} .gcol-green .gitem span{color:var(--green);}
+  .gitem small { display:block; color:var(--muted); font-size:11px; margin-top:2px; }
+  .ball-strip { display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin-top:16px; padding-top:13px; border-top:1px solid var(--border); }
+  .ball-label { font-size:11.5px; font-weight:800; color:var(--muted); margin-right:2px; }
+  .ball-chip { font-size:11.5px; font-weight:600; background:var(--grey-bg); color:var(--text); border-radius:14px; padding:4px 11px; }
+  .ball-chip.hot { background:var(--red-bg); color:var(--red); font-weight:700; }
   /* KPI */
-  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 14px; margin-bottom: 28px; }
-  .kpi-card {
-    background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
-    padding: 16px 18px; display: flex; flex-direction: column; gap: 6px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.06); transition: box-shadow .15s;
-  }
-  .kpi-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 14px; margin-bottom: 20px; }
+  .kpi-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
   .kpi-label { font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); }
   .kpi-value { font-size: 32px; font-weight: 800; line-height: 1; }
   .kpi-sub { font-size: 11px; color: var(--muted); }
@@ -59,54 +85,45 @@
   .kpi-card.green  { border-left: 4px solid var(--green-mid);  } .kpi-card.green  .kpi-value { color: var(--green); }
   .kpi-card.yellow { border-left: 4px solid var(--yellow-mid); } .kpi-card.yellow .kpi-value { color: var(--yellow); }
   .kpi-card.blue   { border-left: 4px solid var(--blue-mid);   } .kpi-card.blue   .kpi-value { color: var(--blue); }
-  .kpi-card.purple { border-left: 4px solid var(--purple-mid); } .kpi-card.purple .kpi-value { color: var(--purple); }
   .kpi-card.orange { border-left: 4px solid var(--orange-mid); } .kpi-card.orange .kpi-value { color: var(--orange); }
-  .kpi-card.grey   { border-left: 4px solid #aaa;              } .kpi-card.grey   .kpi-value { color: var(--grey); }
-
-  /* Charts row */
+  .delta-strip { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:28px; }
+  .delta-chip { font-size:11.5px; font-weight:600; padding:6px 12px; border-radius:16px; }
+  .delta-chip.up { background: var(--red-bg); color: var(--red); }
+  .delta-chip.down { background: var(--green-bg); color: var(--green); }
+  .delta-chip.warn { background: #fff3cd; color: var(--yellow); }
   .row2 { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; margin-bottom: 28px; }
   @media (max-width: 900px) { .row2 { grid-template-columns: 1fr; } }
-  .card {
-    background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
-    padding: 20px 22px; box-shadow: 0 1px 3px rgba(0,0,0,.06);
-  }
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 22px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
   .card h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
   .card .card-sub { font-size: 11.5px; color: var(--muted); margin-bottom: 10px; }
-
-  /* Donut */
   .donut-wrap { display: flex; align-items: center; gap: 24px; margin-top: 10px; flex-wrap: wrap; }
   svg.donut { transform: rotate(-90deg); }
-  .legend { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .legend { display: flex; flex-direction: column; gap: 7px; flex: 1; }
   .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12.5px; }
   .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
   .legend-count { margin-left: auto; font-weight: 700; }
-
-  /* Bar chart */
   .bar-chart { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
   .bar-row { display: flex; align-items: center; gap: 10px; }
   .bar-label { width: 130px; font-size: 12px; font-weight: 600; text-align: right; flex-shrink: 0; }
-  .bar-track { flex: 1; background: #eef0f3; border-radius: 4px; height: 24px; overflow: hidden; position: relative; }
+  .bar-track { flex: 1; background: #eef0f3; border-radius: 4px; height: 24px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px;
-    font-size: 11px; font-weight: 700; color: #fff; min-width: 28px; transition: width .4s ease; }
-  .bar-count { width: 30px; font-size: 12px; font-weight: 700; color: var(--text); flex-shrink: 0; }
-
-  /* Aging horizontal bar chart */
-  .aging-chart { display: flex; flex-direction: column; gap: 12px; margin-top: 14px; }
+    font-size: 11px; font-weight: 700; color: #fff; min-width: 28px; }
+  .bar-count { width: 30px; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .aging-chart { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
   .aging-row { display: flex; align-items: center; gap: 10px; }
-  .aging-label { width: 190px; font-size: 12px; font-weight: 600; text-align: right; flex-shrink: 0; }
-  .aging-track { flex: 1; background: #eef0f3; border-radius: 4px; height: 26px; position: relative; overflow: visible; }
+  .aging-label { width: 210px; font-size: 12px; font-weight: 600; text-align: right; flex-shrink: 0; }
+  .aging-track { flex: 1; background: #eef0f3; border-radius: 4px; height: 26px; position: relative; }
   .aging-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end;
     padding-right: 10px; font-size: 11.5px; font-weight: 800; color: #fff; }
-  .aging-threshold-line { position: absolute; top: -4px; bottom: -4px; width: 2px; background: repeating-linear-gradient(to bottom, #666 0, #666 4px, transparent 4px, transparent 8px); }
+  .aging-fill.expected { background: repeating-linear-gradient(45deg,#8c97a3,#8c97a3 6px,#727d89 6px,#727d89 12px); }
+  .aging-threshold-line { position: absolute; top: -4px; bottom: -4px; width: 2px;
+    background: repeating-linear-gradient(to bottom, #666 0, #666 4px, transparent 4px, transparent 8px); }
   .aging-threshold-label { position: absolute; top: -18px; font-size: 9.5px; color: var(--muted); font-weight: 700; white-space: nowrap; }
-
-  /* Sprint lane cards */
   .lane-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
   @media (max-width: 900px) { .lane-grid { grid-template-columns: 1fr; } }
-  .lane-card {
-    background: var(--card-bg); border-radius: 10px; overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,.06); border: 1px solid var(--border);
-  }
+  .lane-card { background: var(--card-bg); border-radius: 10px; overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06); border: 1px solid var(--border); }
   .lane-header { padding: 14px 18px; color: #fff; display: flex; align-items: center; justify-content: space-between; }
   .lane-header.approval { background: linear-gradient(90deg, #1d6cc8, #0550ae); }
   .lane-header.build { background: linear-gradient(90deg, #e0762e, #bc4c00); }
@@ -114,86 +131,93 @@
   .lane-header .lane-title { font-size: 14px; font-weight: 700; }
   .lane-header .lane-count { font-size: 22px; font-weight: 800; }
   .lane-body { padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; }
-  .lane-item {
-    border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; font-size: 12px;
-    display: flex; flex-direction: column; gap: 2px;
-  }
+  .lane-item { border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; font-size: 12px;
+    display: flex; flex-direction: column; gap: 2px; }
   .lane-item .li-key { font-weight: 700; color: var(--blue); }
-  a.li-key, a.nc-key, a.mismatch-key { text-decoration: none; cursor: pointer; }
-  a.li-key:hover, a.nc-key:hover, a.mismatch-key:hover { text-decoration: underline; }
-  .lane-item .li-status { display: inline-block; margin-top: 2px; }
+  a.li-key, a.nc-key, a.sub-key { text-decoration: none; cursor: pointer; }
+  a.li-key:hover, a.nc-key:hover, a.sub-key:hover { text-decoration: underline; }
   .lane-item.is-blocked { background: #fff8f8; border-color: #fca5a5; }
-
-  /* Status chips */
+  .lane-item.is-expected { background: #f7f8f9; border-color: #c9d0d7; }
+  .sub-badge { font-size:10px; font-weight:700; color:var(--red); background:var(--red-bg);
+    border-radius:8px; padding:1px 7px; margin-top:3px; display:inline-block; width:fit-content; }
+  .sub-badge.grey { color:#5a6673; background:#e8ebee; }
   .chip { display:inline-block; border-radius:10px; padding:2px 9px; font-size:11px; font-weight:600; white-space: nowrap; }
-  .chip.closed     { background:var(--green-bg);  color:var(--green); }
   .chip.progress   { background:var(--blue-bg);   color:var(--blue); }
   .chip.blocked    { background:var(--red-bg);    color:var(--red); }
+  .chip.expected   { background:#e8ebee;          color:#5a6673; }
   .chip.new        { background:var(--grey-bg);   color:var(--grey); }
   .chip.review     { background:var(--yellow-bg); color:var(--yellow); }
-  .chip.cancelled  { background:#f0f0f0;           color:#666; }
-  .chip.promotion  { background:var(--purple-bg); color:var(--purple); }
   .chip.draft      { background:var(--orange-bg); color:var(--orange); }
   .chip.approve    { background:var(--blue-bg);   color:var(--blue); }
-  .chip.verify     { background:var(--yellow-bg); color:var(--yellow); }
-
-  /* Mismatch alert box */
-  .mismatch-box {
-    background: #fff9e6; border: 1px solid #fcd34d; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px;
-  }
-  .mismatch-row {
-    display: grid; grid-template-columns: 110px 1fr 140px 140px; gap: 10px; align-items: center;
-    padding: 8px 0; border-bottom: 1px solid #fde68a; font-size: 12.5px;
-  }
-  .mismatch-row:last-child { border-bottom: none; }
-  .mismatch-row .arrow { color: var(--yellow); font-weight: 800; text-align: center; }
-  @media (max-width: 760px) { .mismatch-row { grid-template-columns: 1fr; } }
-
-  /* Blocked cards with aging */
+  .chip.rework     { background:var(--purple-bg); color:var(--purple); }
+  .chip.visual     { background:var(--green-bg);  color:var(--green); }
+  .chip.unblocked  { background:var(--green-bg);  color:var(--green); }
+  /* Blocked card blocks */
   .blocked-section { margin-bottom: 28px; }
-  .main-card-block {
-    background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
-    margin-bottom: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.06);
-  }
+  .main-card-block { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
+    margin-bottom: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
   .main-card-block.critical { border-color: #fca5a5; }
-  .main-card-header {
-    background: linear-gradient(90deg, #fff0f0, #fff5f5);
-    border-bottom: 1px solid #fca5a5;
-    padding: 14px 20px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
-  }
+  .main-card-block.expected { border-color: #c9d0d7; }
+  .main-card-header { background: linear-gradient(90deg, #fff0f0, #fff5f5); border-bottom: 1px solid #fca5a5;
+    padding: 14px 20px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
   .main-card-header.recent { background: linear-gradient(90deg, #f0fdf4, #f7fee7); border-bottom: 1px solid #86efac; }
+  .main-card-header.warn { background: linear-gradient(90deg, #fffaf0, #fffdf5); border-bottom: 1px solid #f8c091; }
+  .main-card-header.expected { background: linear-gradient(90deg, #f5f6f7, #fafbfc); border-bottom: 1px solid #c9d0d7; }
   .blocked-pill { background: var(--red-bg); color: var(--red); border: 1px solid #fca5a5;
     border-radius: 20px; padding: 3px 12px; font-size: 11px; font-weight: 700; }
   .blocked-pill.recent { background: var(--green-bg); color: var(--green); border-color: #86efac; }
+  .blocked-pill.warn { background: var(--orange-bg); color: var(--orange); border-color: #f8c091; }
+  .blocked-pill.expected { background: #e8ebee; color: #5a6673; border-color: #c9d0d7; }
   .main-card-key { font-weight: 800; font-size: 14px; color: var(--blue); text-decoration: none; }
   .main-card-title { font-weight: 600; font-size: 14px; flex: 1; }
   .main-card-days { font-size: 20px; font-weight: 800; color: var(--red); }
   .main-card-days.recent { color: var(--green); }
+  .main-card-days.expected { color: #5a6673; }
   .main-card-days-label { font-size: 10px; color: var(--muted); text-transform: uppercase; }
   .main-card-body { padding: 16px 20px; }
-  .blocker-box {
-    background: #fff8f8; border-left: 3px solid var(--red-mid); border-radius: 4px;
-    padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: var(--text);
-    margin-top: 10px;
-  }
+  .blocker-box { background: #fff8f8; border-left: 3px solid var(--red-mid); border-radius: 4px;
+    padding: 10px 14px; font-size: 12.5px; line-height: 1.6; margin-top: 10px; }
+  .blocker-box.expected { background: #f7f8f9; border-left-color: #8c97a3; }
   .blocker-box strong { display: block; font-size: 11px; text-transform: uppercase;
     letter-spacing: .4px; color: var(--red); margin-bottom: 4px; }
-  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 10px; margin-bottom: 10px; font-size: 12px; }
+  .blocker-box.expected strong { color: #5a6673; }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 10px; margin-bottom: 10px; font-size: 12px; }
   .info-item .info-label { font-size: 10px; text-transform: uppercase; color: var(--muted); font-weight: 700; letter-spacing: .3px; }
   .info-item .info-value { font-weight: 600; margin-top: 2px; }
-
-  /* Narrative cards grid */
+  /* SUBTASK TABLE */
+  .subtask-wrap { margin-top: 14px; border: 1px solid #e3e6ea; border-radius: 8px; overflow: hidden; }
+  .subtask-head { background: #f3f5f7; padding: 8px 13px; font-size: 11px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: .4px; color: var(--muted); display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap; }
+  .subtask-count { background: var(--red-bg); color: var(--red); border-radius: 10px; padding: 1px 9px; font-size: 10.5px; }
+  .subtask-count.grey { background:#e0e4e8; color:#5a6673; }
+  .subtask-count.green { background: var(--green-bg); color: var(--green); }
+  .subtask-row { display: grid; grid-template-columns: 108px 1fr 130px 88px; gap: 10px;
+    padding: 8px 13px; border-top: 1px solid #eceef1; font-size: 12px; align-items: start; }
+  .subtask-row:nth-child(even) { background: #fbfcfd; }
+  @media (max-width: 820px) { .subtask-row { grid-template-columns: 1fr; gap:3px; } }
+  .sub-key { font-weight: 800; color: var(--blue); font-size: 11.5px; }
+  .sub-name { line-height: 1.45; }
+  .sub-tag { font-size:10px; font-weight:700; border-radius:6px; padding:1px 6px; margin-left:4px; }
+  .sub-tag.consumable { background: var(--purple-bg); color: var(--purple); }
+  .sub-tag.gds { background: var(--orange-bg); color: var(--orange); }
+  .sub-tag.ds { background: var(--blue-bg); color: var(--blue); }
+  .sub-assignee { font-size: 11.5px; color: var(--text); font-weight:600; }
+  .sub-status { font-size: 10.5px; font-weight: 700; border-radius: 8px; padding: 2px 8px;
+    background: var(--red-bg); color: var(--red); text-align:center; height:fit-content; }
+  .sub-status.inreview { background: var(--yellow-bg); color: var(--yellow); }
+  .sub-status.inprogress { background: var(--blue-bg); color: var(--blue); }
+  .sub-status.draft { background: var(--orange-bg); color: var(--orange); }
+  /* Narrative */
   .narrative-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; margin-bottom: 28px; }
-  .narrative-card {
-    background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.06); display: flex; flex-direction: column; gap: 10px;
-  }
+  .narrative-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06); display: flex; flex-direction: column; gap: 10px; }
   .narrative-card.mismatch-flag { border-left: 4px solid var(--yellow-mid); }
+  .narrative-card.good-flag { border-left: 4px solid var(--green-mid); }
   .nc-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
   .nc-key { font-weight: 800; color: var(--blue); font-size: 13.5px; }
-  .nc-method { font-weight: 600; font-size: 13px; color: var(--text); margin-top: 2px; }
+  .nc-method { font-weight: 600; font-size: 13px; margin-top: 2px; }
   .nc-meta { font-size: 11px; color: var(--muted); display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
-  .nc-narrative { font-size: 12.5px; line-height: 1.6; color: var(--text); background: #fafbfc; border-radius: 6px; padding: 10px 12px; }
+  .nc-narrative { font-size: 12.5px; line-height: 1.6; background: #fafbfc; border-radius: 6px; padding: 10px 12px; }
   .nc-row { display: flex; gap: 8px; font-size: 12px; align-items: flex-start; }
   .nc-row .nc-icon { flex-shrink: 0; width: 18px; text-align: center; }
   .nc-row .nc-label { font-weight: 700; color: var(--muted); min-width: 90px; flex-shrink: 0; }
@@ -201,8 +225,6 @@
   .nc-tag.stagnant { background: var(--red-bg); color: var(--red); }
   .nc-tag.ok { background: var(--green-bg); color: var(--green); }
   .nc-tag.minor { background: var(--yellow-bg); color: var(--yellow); }
-
-  /* Footer */
   .footer { text-align: center; color: var(--muted); font-size: 11px; margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); }
   .sprint-type-tag { display:inline-block; border-radius:8px; padding:2px 10px; font-size:10.5px; font-weight:700; margin-left: 8px; }
   .sprint-type-tag.approval { background: var(--blue-bg); color: var(--blue); }
@@ -211,100 +233,177 @@
 </style>
 </head>
 <body>
-
 <div class="header">
   <div>
     <h1>🧬 Sprint 22 — Empower POD Team 1</h1>
-    <div class="meta">Reference date: September 1, 2026 · Source: Jira (filter 17456) + Rovo analysis</div>
+    <div class="meta">Prepared for review — Tuesday, September 8, 2026 · Source: Jira (filter 17456, Sprint field verified) + Rovo analysis</div>
   </div>
   <div class="badge-team">👤 Pod Leader: Andres Esquivel</div>
 </div>
-
 <div class="page">
 
-  <div class="note-pill">📌 13 of 25 cards documented in detail (those with relevant narrative/blocker activity). The remaining cards sit in no-news statuses (New/Closed/Cancelled) and are not detailed here. Note: LUNA-12549 (CC00593 - Atomic Absorption) was excluded — it belongs to Sprint 35, not Sprint 22.</div>
+  <!-- ============ AT A GLANCE ============ -->
+  <div class="glance">
+    <div class="glance-top">
+      <div class="glance-title">⚡ At a Glance — Sprint 22 in 10 seconds</div>
+      <div class="glance-date">Tuesday, Sept 8 · 12 cards · 5 blocked (2 expected) · 11 blocked subtasks</div>
+    </div>
+
+    <div class="healthbar">
+      <div class="hb-seg hb-red"    style="width:8.3%">1</div>
+      <div class="hb-seg hb-orange" style="width:16.7%">2</div>
+      <div class="hb-seg hb-slate"  style="width:16.7%">2</div>
+      <div class="hb-seg hb-yellow" style="width:8.3%">1</div>
+      <div class="hb-seg hb-green"  style="width:50%">6</div>
+    </div>
+    <div class="hb-legend">
+      <span><i class="d red"></i> 1 Needs escalation now</span>
+      <span><i class="d orange"></i> 2 New blockers to track</span>
+      <span><i class="d slate"></i> 2 Blocked but expected (no action)</span>
+      <span><i class="d yellow"></i> 1 At risk — needs a nudge</span>
+      <span><i class="d green"></i> 6 Moving fine</span>
+    </div>
+
+    <div class="glance-cols">
+      <div class="gcol gcol-red">
+        <div class="gcol-head">🚨 The one to push today</div>
+        <div class="gitem"><b>B00781</b> · <span>7 blocked subtasks</span><small>Two problems stacked: August GEMs aren't aligned with the method design, <b>and</b> Douglas Sims still hasn't named the SME who approves the consumables/Design Specs — so the approvals literally have no owner.</small></div>
+      </div>
+      <div class="gcol gcol-orange">
+        <div class="gcol-head">🆕 New blockers</div>
+        <div class="gitem"><b>B12995</b> · <span>1 blocked subtask</span><small>PRE-STG missing Empower Reference Parameter Types — environment issue, Raquel following up</small></div>
+        <div class="gitem"><b>G1246</b> · <span>external deps</span><small>Waiting on consumables in LUNA-13313 &amp; LUNA-13840</small></div>
+      </div>
+      <div class="gcol gcol-slate">
+        <div class="gcol-head">😌 Blocked but expected</div>
+        <div class="gitem"><b>G2535</b> · <span>&gt;20d · 3 subtasks</span><small>Planned dependency on parent exemplar B13225 → Sprint 28. Results Only stream advancing on its own.</small></div>
+        <div class="gitem"><b>CC10003</b> · <span>10d · 0 subtasks</span><small>Sitting with PLT/RAID by design while Acceleration confirms Draft vs. Final GEM. Subtasks still moving underneath.</small></div>
+      </div>
+      <div class="gcol gcol-green">
+        <div class="gcol-head">✅ Good news</div>
+        <div class="gitem"><b>G2664</b> · <span>UNBLOCKED</span><small>Left Blocked Testing → now in Visual Verification (STG)</small></div>
+        <div class="gitem"><b>B03622</b> · <span>unit test passed</span><small>Both recipes cleared Sept 7</small></div>
+        <div class="gitem"><b>B07229 · CM02496</b> · <span>active</span><small>Gabriela working both</small></div>
+        <div class="gitem"><b>A06244</b> · <span>no longer idle</span><small>Andressa confirmed she's working the Design Spec</small></div>
+      </div>
+    </div>
+
+    <div class="ball-strip">
+      <span class="ball-label">🏀 Ball is with:</span>
+      <span class="ball-chip hot">Douglas Sims <b>(name the SME)</b></span>
+      <span class="ball-chip hot">Acceleration <b>(GEM alignment)</b></span>
+      <span class="ball-chip">Empower Platform / Raquel B.</span>
+      <span class="ball-chip">PLT / RAID</span>
+      <span class="ball-chip">Rodrigo Aguilar</span>
+      <span class="ball-chip">Gabriela Campos</span>
+      <span class="ball-chip">Ivette Lopez Blasini</span>
+    </div>
+  </div>
 
   <!-- KPI ROW -->
-  <div class="section-title">Overall Metrics</div>
+  <div class="section-title">Overall Metrics — Sprint 22 only</div>
   <div class="kpi-grid">
     <div class="kpi-card blue">
-      <div class="kpi-label">Cards Documented</div>
-      <div class="kpi-value">13</div>
-      <div class="kpi-sub">out of 25 total issues</div>
+      <div class="kpi-label">Cards in Sprint 22</div>
+      <div class="kpi-value">12</div>
+      <div class="kpi-sub">confirmed via Jira Sprint field</div>
     </div>
     <div class="kpi-card red">
-      <div class="kpi-label">Blocked</div>
-      <div class="kpi-value">3</div>
-      <div class="kpi-sub">1 critical &gt;10 business days</div>
-    </div>
-    <div class="kpi-card yellow">
-      <div class="kpi-label">Mismatches Found</div>
+      <div class="kpi-label">Blocked Cards</div>
       <div class="kpi-value">5</div>
-      <div class="kpi-sub">subtask ahead of card label</div>
+      <div class="kpi-sub">3 actionable + 2 expected</div>
     </div>
     <div class="kpi-card orange">
-      <div class="kpi-label">Build Sprint</div>
-      <div class="kpi-value">6</div>
-      <div class="kpi-sub">in construction phase</div>
+      <div class="kpi-label">Blocked Subtasks</div>
+      <div class="kpi-value">11</div>
+      <div class="kpi-sub">7 of them on B00781 alone</div>
     </div>
     <div class="kpi-card blue">
-      <div class="kpi-label">Approval Sprint</div>
+      <div class="kpi-label">Approval Sprint 22</div>
       <div class="kpi-value">5</div>
-      <div class="kpi-sub">in requirements phase</div>
+      <div class="kpi-sub">requirements/approval phase</div>
+    </div>
+    <div class="kpi-card orange">
+      <div class="kpi-label">Build Sprint 22</div>
+      <div class="kpi-value">6</div>
+      <div class="kpi-sub">construction/rework phase</div>
     </div>
     <div class="kpi-card green">
-      <div class="kpi-label">Verification Sprint</div>
+      <div class="kpi-label">Verification Sprint 22</div>
       <div class="kpi-value">1</div>
-      <div class="kpi-sub">in promotion phase</div>
+      <div class="kpi-sub">promotion phase</div>
     </div>
+  </div>
+
+  <div class="delta-strip">
+    <span class="delta-chip down">✅ G2664 unblocked — now Visual Verification in STG</span>
+    <span class="delta-chip up">⚠️ B00781: GEMs misaligned + no SME named for approvals</span>
+    <span class="delta-chip down">😌 CC10003 reclassified — blocked by design, not stalled</span>
+    <span class="delta-chip warn">🆕 B12995 blocked Sept 7 — PRE-STG environment defect</span>
+    <span class="delta-chip warn">🆕 G1246 confirmed Blocked Testing (external consumables)</span>
+    <span class="delta-chip down">✅ A06244 active again — Andressa drafting the Design Spec</span>
   </div>
 
   <!-- CHARTS ROW -->
   <div class="row2">
     <div class="card">
-      <h3>Status Breakdown (13 cards)</h3>
-      <div class="card-sub">Distribution of official Jira status across documented cards</div>
+      <h3>Status Breakdown (12 cards)</h3>
+      <div class="card-sub">Official Jira status, updated Sept 8</div>
       <div class="donut-wrap">
         <svg class="donut" width="180" height="180" viewBox="0 0 180 180">
-          <circle cx="90" cy="90" r="80" fill="none" stroke="#cf222e" stroke-width="20" stroke-dasharray="116.0 386.7" stroke-dashoffset="0"/>
-          <circle cx="90" cy="90" r="80" fill="none" stroke="#1d6cc8" stroke-width="20" stroke-dasharray="116.0 386.7" stroke-dashoffset="-116.0"/>
-          <circle cx="90" cy="90" r="80" fill="none" stroke="#e0762e" stroke-width="20" stroke-dasharray="116.0 386.7" stroke-dashoffset="-232.0"/>
-          <circle cx="90" cy="90" r="80" fill="none" stroke="#d4a017" stroke-width="20" stroke-dasharray="38.7 464.0" stroke-dashoffset="-348.0"/>
-          <circle cx="90" cy="90" r="80" fill="none" stroke="#8250df" stroke-width="20" stroke-dasharray="38.7 464.0" stroke-dashoffset="-386.7"/>
-          <circle cx="90" cy="90" r="80" fill="none" stroke="#2da44e" stroke-width="20" stroke-dasharray="38.7 464.0" stroke-dashoffset="-425.3"/>
-          <circle cx="90" cy="90" r="80" fill="none" stroke="#57606a" stroke-width="20" stroke-dasharray="38.7 464.0" stroke-dashoffset="-464.0"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#cf222e" stroke-width="20" stroke-dasharray="83.8 418.9" stroke-dashoffset="0"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#a8000a" stroke-width="20" stroke-dasharray="83.8 418.9" stroke-dashoffset="-83.8"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#e35d5d" stroke-width="20" stroke-dasharray="41.9 460.8" stroke-dashoffset="-167.6"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#8250df" stroke-width="20" stroke-dasharray="83.8 418.9" stroke-dashoffset="-209.5"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#2da44e" stroke-width="20" stroke-dasharray="83.8 418.9" stroke-dashoffset="-293.3"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#1d6cc8" stroke-width="20" stroke-dasharray="41.9 460.8" stroke-dashoffset="-377.1"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#e0762e" stroke-width="20" stroke-dasharray="41.9 460.8" stroke-dashoffset="-419.0"/>
+          <circle cx="90" cy="90" r="80" fill="none" stroke="#0550ae" stroke-width="20" stroke-dasharray="41.9 460.8" stroke-dashoffset="-460.9"/>
         </svg>
         <div class="legend">
-          <div class="legend-item"><span class="legend-dot" style="background:#cf222e;"></span> Blocked <span class="legend-count">3</span></div>
-          <div class="legend-item"><span class="legend-dot" style="background:#1d6cc8;"></span> Development <span class="legend-count">3</span></div>
-          <div class="legend-item"><span class="legend-dot" style="background:#e0762e;"></span> Draft Requirements <span class="legend-count">3</span></div>
-          <div class="legend-item"><span class="legend-dot" style="background:#d4a017;"></span> Verification Backlog <span class="legend-count">1</span></div>
-          <div class="legend-item"><span class="legend-dot" style="background:#8250df;"></span> Approve Requirements <span class="legend-count">1</span></div>
-          <div class="legend-item"><span class="legend-dot" style="background:#2da44e;"></span> Promotion <span class="legend-count">1</span></div>
-          <div class="legend-item"><span class="legend-dot" style="background:#57606a;"></span> Testing <span class="legend-count">1</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#cf222e;"></span> Blocked Approval <span class="legend-count">2</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#a8000a;"></span> Blocked Build <span class="legend-count">2</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#e35d5d;"></span> Blocked Testing <span class="legend-count">1</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#8250df;"></span> Master Data Rework <span class="legend-count">2</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#2da44e;"></span> Visual Verification <span class="legend-count">2</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#1d6cc8;"></span> Development <span class="legend-count">1</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#e0762e;"></span> Draft Requirements <span class="legend-count">1</span></div>
+          <div class="legend-item"><span class="legend-dot" style="background:#0550ae;"></span> Approve Requirements <span class="legend-count">1</span></div>
         </div>
       </div>
     </div>
-
     <div class="card">
-      <h3>Cards by Sprint Type (lane)</h3>
-      <div class="card-sub">Which stage of the workflow each card is running in</div>
+      <h3>Blocked Subtasks by Card</h3>
+      <div class="card-sub">How many subtasks are actually stuck under each blocked parent</div>
       <div class="bar-chart">
         <div class="bar-row">
-          <div class="bar-label">🟧 Build</div>
-          <div class="bar-track"><div class="bar-fill" style="width:100%; background:linear-gradient(90deg,#e0762e,#bc4c00);">6</div></div>
-          <div class="bar-count">6</div>
+          <div class="bar-label">B00781</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%; background:linear-gradient(90deg,#e35d5d,#a8000a);">7</div></div>
+          <div class="bar-count">7</div>
         </div>
         <div class="bar-row">
-          <div class="bar-label">🟦 Approval</div>
-          <div class="bar-track"><div class="bar-fill" style="width:83%; background:linear-gradient(90deg,#1d6cc8,#0550ae);">5</div></div>
-          <div class="bar-count">5</div>
+          <div class="bar-label">G2535 <span style="font-weight:400;font-size:10px;">(expected)</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:43%; background:repeating-linear-gradient(45deg,#8c97a3,#8c97a3 6px,#727d89 6px,#727d89 12px);">3</div></div>
+          <div class="bar-count">3</div>
         </div>
         <div class="bar-row">
-          <div class="bar-label">🟩 Verification</div>
-          <div class="bar-track"><div class="bar-fill" style="width:17%; background:linear-gradient(90deg,#2da44e,#1a7f37);">1</div></div>
+          <div class="bar-label">B12995</div>
+          <div class="bar-track"><div class="bar-fill" style="width:14%; background:linear-gradient(90deg,#ef8a5a,#bc4c00);">1</div></div>
           <div class="bar-count">1</div>
         </div>
+        <div class="bar-row">
+          <div class="bar-label">CC10003 <span style="font-weight:400;font-size:10px;">(expected)</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:6%; background:#c9ced4; color:#444;">0</div></div>
+          <div class="bar-count">0</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">G1246</div>
+          <div class="bar-track"><div class="bar-fill" style="width:6%; background:#c9ced4; color:#444;">0</div></div>
+          <div class="bar-count">0</div>
+        </div>
+      </div>
+      <div style="font-size:11px; color:var(--muted); margin-top:12px; line-height:1.5;">
+        CC10003 and G1246 are blocked <b>at the parent level</b> — their own subtasks are still moving (or the dependency lives in a different card entirely).
       </div>
     </div>
   </div>
@@ -312,375 +411,470 @@
   <!-- AGING CHART -->
   <div class="section-title">🚫 Blocked Aging — Business Days in Blocked Status</div>
   <div class="card" style="margin-bottom:28px;">
-    <div class="card-sub">Red dashed line = 10 business day critical threshold</div>
+    <div class="card-sub">Dashed line = 10 business day critical threshold · striped bar = blocked by a known, planned dependency (not a concern)</div>
     <div class="aging-chart">
       <div class="aging-row">
-        <div class="aging-label"><a href="https://erpservices.atlassian.net/browse/LUNA-13212" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-13212</a> · G2535</div>
+        <div class="aging-label"><a href="https://erpservices.atlassian.net/browse/LUNA-13212" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-13212</a> · G2535 <span style="font-weight:400;font-size:10.5px;">(expected)</span></div>
         <div class="aging-track">
-          <div class="aging-threshold-line" style="left:66.7%;"><span class="aging-threshold-label">10d threshold</span></div>
-          <div class="aging-fill" style="width:100%; background:linear-gradient(90deg,#e35d5d,#a8000a);">15 days</div>
+          <div class="aging-threshold-line" style="left:45.5%;"><span class="aging-threshold-label">10d threshold</span></div>
+          <div class="aging-fill expected" style="width:91%;">&gt;20 days · planned dependency</div>
         </div>
       </div>
       <div class="aging-row">
-        <div class="aging-label"><a href="https://erpservices.atlassian.net/browse/LUNA-12437" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-12437</a> · CC10003</div>
+        <div class="aging-label"><a href="https://erpservices.atlassian.net/browse/LUNA-12437" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-12437</a> · CC10003 <span style="font-weight:400;font-size:10.5px;">(expected)</span></div>
         <div class="aging-track">
-          <div class="aging-threshold-line" style="left:66.7%;"></div>
-          <div class="aging-fill" style="width:20%; background:linear-gradient(90deg,#4fae63,#1a7f37); justify-content:flex-start; padding-left:8px;">3d</div>
+          <div class="aging-threshold-line" style="left:45.5%;"></div>
+          <div class="aging-fill expected" style="width:45.5%;">10 days · PLT/RAID hold</div>
         </div>
       </div>
       <div class="aging-row">
-        <div class="aging-label"><a href="https://erpservices.atlassian.net/browse/LUNA-16083" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-16083</a> · CM01534</div>
+        <div class="aging-label"><a href="https://erpservices.atlassian.net/browse/LUNA-13246" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-13246</a> · B00781</div>
         <div class="aging-track">
-          <div class="aging-threshold-line" style="left:66.7%;"></div>
-          <div class="aging-fill" style="width:13%; background:linear-gradient(90deg,#4fae63,#1a7f37); justify-content:flex-start; padding-left:8px;">2d</div>
+          <div class="aging-threshold-line" style="left:45.5%;"></div>
+          <div class="aging-fill" style="width:22.7%; background:linear-gradient(90deg,#d4a017,#9a6700); justify-content:flex-start; padding-left:8px;">5d</div>
+        </div>
+      </div>
+      <div class="aging-row">
+        <div class="aging-label"><a href="https://erpservices.atlassian.net/browse/LUNA-13307" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-13307</a> · B12995</div>
+        <div class="aging-track">
+          <div class="aging-threshold-line" style="left:45.5%;"></div>
+          <div class="aging-fill" style="width:8%; background:linear-gradient(90deg,#4fae63,#1a7f37); justify-content:flex-start; padding-left:8px;">1d</div>
+        </div>
+      </div>
+      <div class="aging-row">
+        <div class="aging-label"><a href="https://erpservices.atlassian.net/browse/LUNA-13837" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-13837</a> · G1246</div>
+        <div class="aging-track">
+          <div class="aging-threshold-line" style="left:45.5%;"></div>
+          <div class="aging-fill" style="width:6%; background:linear-gradient(90deg,#4fae63,#1a7f37); justify-content:flex-start; padding-left:8px;">0d</div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- SPRINT LANES -->
-  <div class="section-title">Distribution by Sprint Type (workflow lane)</div>
+  <div class="section-title">Distribution by Sprint Lane (12 confirmed Sprint 22 cards)</div>
   <div class="lane-grid">
-
     <div class="lane-card">
       <div class="lane-header approval">
-        <div class="lane-title">🟦 APPROVAL SPRINT</div>
+        <div class="lane-title">🟦 APPROVAL SPRINT 22</div>
         <div class="lane-count">5</div>
       </div>
       <div class="lane-body">
         <div class="lane-item is-blocked">
-          <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-13212" target="_blank">LUNA-13212</a> · G2535 - Dissolution
-          <span class="li-status"><span class="chip blocked">Blocked Approval</span> <span class="chip review">real: In Review</span></span>
-        </div>
-        <div class="lane-item">
-          <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-13231" target="_blank">LUNA-13231</a> · A06244 - Identity
-          <span class="li-status"><span class="chip draft">Draft Requirements</span></span>
-        </div>
-        <div class="lane-item">
           <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-13246" target="_blank">LUNA-13246</a> · B00781 - HPLC ID/Purity
-          <span class="li-status"><span class="chip draft">Draft Requirements</span></span>
+          <span><span class="chip blocked">Blocked Approval</span></span>
+          <span class="sub-badge">🔒 7 blocked subtasks</span>
+        </div>
+        <div class="lane-item is-expected">
+          <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-13212" target="_blank">LUNA-13212</a> · G2535 - Dissolution
+          <span><span class="chip expected">Blocked Approval · expected</span></span>
+          <span class="sub-badge grey">🔒 3 blocked subtasks · parent exemplar dep.</span>
+        </div>
+        <div class="lane-item is-blocked">
+          <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-13307" target="_blank">LUNA-13307</a> · B12995 - Liquid Chromatography
+          <span><span class="chip blocked">Blocked Build</span></span>
+          <span class="sub-badge">🔒 1 blocked subtask</span>
         </div>
         <div class="lane-item">
           <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-13267" target="_blank">LUNA-13267</a> · B06976 - Clarity of Solution
-          <span class="li-status"><span class="chip draft">Draft Requirements</span></span>
+          <span><span class="chip approve">Approve Requirements</span></span>
         </div>
         <div class="lane-item">
-          <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-13307" target="_blank">LUNA-13307</a> · B12995 - Liquid Chromatography
-          <span class="li-status"><span class="chip approve">Approve Requirements</span></span>
+          <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-13231" target="_blank">LUNA-13231</a> · A06244 - Identity
+          <span><span class="chip draft">Draft Requirements</span> <span class="chip unblocked">✍️ DS in progress</span></span>
         </div>
       </div>
     </div>
-
     <div class="lane-card">
       <div class="lane-header build">
-        <div class="lane-title">🟧 BUILD SPRINT</div>
+        <div class="lane-title">🟧 BUILD SPRINT 22</div>
         <div class="lane-count">6</div>
       </div>
       <div class="lane-body">
-        <div class="lane-item is-blocked">
+        <div class="lane-item is-expected">
           <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-12437" target="_blank">LUNA-12437</a> · CC10003 - Sterility
-          <span class="li-status"><span class="chip blocked">Blocked Build</span></span>
-        </div>
-        <div class="lane-item is-blocked">
-          <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-16083" target="_blank">LUNA-16083</a> · CM01534 - Identity
-          <span class="li-status"><span class="chip blocked">Blocked Build</span> <span class="chip review">real: In Review</span></span>
-        </div>
-        <div class="lane-item">
-          <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-13256" target="_blank">LUNA-13256</a> · B03622 - HPLC Purity
-          <span class="li-status"><span class="chip progress">Development</span> <span class="chip review">real: In Review</span></span>
-        </div>
-        <div class="lane-item">
-          <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-13270" target="_blank">LUNA-13270</a> · B07229 - Titration
-          <span class="li-status"><span class="chip progress">Development</span> <span class="chip closed">real: Closed*</span></span>
+          <span><span class="chip expected">Blocked Build · expected</span></span>
+          <span class="sub-badge grey">⚙️ parent-level PLT/RAID hold · subtasks active</span>
         </div>
         <div class="lane-item">
           <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-15033" target="_blank">LUNA-15033</a> · G2664 - Liquid Chromatography
-          <span class="li-status"><span class="chip progress">Development</span> <span class="chip review">real: In Review</span></span>
+          <span><span class="chip visual">Visual Verification</span> <span class="chip unblocked">✅ unblocked</span></span>
+        </div>
+        <div class="lane-item">
+          <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-16083" target="_blank">LUNA-16083</a> · CM01534 - Identity
+          <span><span class="chip progress">Development</span> <span class="chip review">subtask blocked</span></span>
+        </div>
+        <div class="lane-item">
+          <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-13256" target="_blank">LUNA-13256</a> · B03622 - HPLC Purity
+          <span><span class="chip rework">Master Data Rework</span></span>
+        </div>
+        <div class="lane-item">
+          <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-13270" target="_blank">LUNA-13270</a> · B07229 - Titration (incl. KF)
+          <span><span class="chip rework">Master Data Rework</span></span>
         </div>
         <div class="lane-item">
           <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-13789" target="_blank">LUNA-13789</a> · CM02496 - Titrimetric
-          <span class="li-status"><span class="chip verify">Verification Backlog</span></span>
+          <span><span class="chip visual">Visual Verification</span></span>
         </div>
       </div>
     </div>
-
     <div class="lane-card">
       <div class="lane-header verification">
-        <div class="lane-title">🟩 VERIFICATION SPRINT</div>
+        <div class="lane-title">🟩 VERIFICATION SPRINT 22</div>
         <div class="lane-count">1</div>
       </div>
       <div class="lane-body">
-        <div class="lane-item">
+        <div class="lane-item is-blocked">
           <a class="li-key" href="https://erpservices.atlassian.net/browse/LUNA-13837" target="_blank">LUNA-13837</a> · G1246 - SDS Gel (Electrophoresis)
-          <span class="li-status"><span class="chip promotion">Promotion</span></span>
+          <span><span class="chip blocked">Blocked Testing</span></span>
+          <span class="sub-badge grey">🔗 blocked by consumables in other cards</span>
         </div>
         <div style="font-size:11px; color:var(--muted); text-align:center; padding: 20px 0;">
-          No additional cards documented in this lane this week.
+          Only 1 card in this lane per current Sprint field.
         </div>
       </div>
     </div>
-
   </div>
 
-  <!-- MISMATCH SECTION -->
-  <div class="section-title">⚠️ Alignment Alerts: Official Label vs. Real Progress by Subtask</div>
-  <div class="mismatch-box">
-    <div class="mismatch-row" style="font-weight:700; color:var(--muted); font-size:11px; text-transform:uppercase;">
-      <div>Card</div><div>Method</div><div>Jira Label</div><div>Real Progress</div>
-    </div>
-    <div class="mismatch-row">
-      <a class="mismatch-key" style="font-weight:800; color:var(--blue);" href="https://erpservices.atlassian.net/browse/LUNA-13212" target="_blank">LUNA-13212</a>
-      <div>G2535 - Dissolution</div>
-      <div><span class="chip blocked">Blocked Approval</span></div>
-      <div><span class="chip review">In Review</span> <span class="arrow">→</span></div>
-    </div>
-    <div class="mismatch-row">
-      <a class="mismatch-key" style="font-weight:800; color:var(--blue);" href="https://erpservices.atlassian.net/browse/LUNA-16083" target="_blank">LUNA-16083</a>
-      <div>CM01534 - Identity</div>
-      <div><span class="chip blocked">Blocked Build</span></div>
-      <div><span class="chip review">In Review</span> <span class="arrow">→</span></div>
-    </div>
-    <div class="mismatch-row">
-      <a class="mismatch-key" style="font-weight:800; color:var(--blue);" href="https://erpservices.atlassian.net/browse/LUNA-15033" target="_blank">LUNA-15033</a>
-      <div>G2664 - Liquid Chromatography</div>
-      <div><span class="chip progress">Development</span></div>
-      <div><span class="chip review">In Review</span> <span class="arrow">→</span></div>
-    </div>
-    <div class="mismatch-row">
-      <a class="mismatch-key" style="font-weight:800; color:var(--blue);" href="https://erpservices.atlassian.net/browse/LUNA-13256" target="_blank">LUNA-13256</a>
-      <div>B03622 - HPLC Purity</div>
-      <div><span class="chip progress">Development</span></div>
-      <div><span class="chip review">In Review</span> <span class="arrow">→</span></div>
-    </div>
-    <div class="mismatch-row">
-      <a class="mismatch-key" style="font-weight:800; color:var(--blue);" href="https://erpservices.atlassian.net/browse/LUNA-13270" target="_blank">LUNA-13270</a>
-      <div>B07229 - Titration</div>
-      <div><span class="chip progress">Development</span></div>
-      <div><span class="chip closed">Closed*</span> <span class="arrow">→</span></div>
-    </div>
-    <div style="font-size:11px; color:var(--muted); margin-top:8px; padding-top:8px; border-top:1px dashed #fde68a;">
-      *"Closed" refers to the Build MDO subtask already closed; the rest of the workflow (demo, migration, Confluence) is still pending within the same card.
-    </div>
+  <!-- BLOCKED CARDS WITH SUBTASKS -->
+  <div class="section-title">🚫 Blocked Cards — Root Cause &amp; Blocking Subtasks</div>
+  <div style="font-size:12px; color:var(--muted); margin:-4px 0 14px; line-height:1.6;">
+    Ordered by <b>how much attention each needs</b>, not by age. The two grey cards at the bottom are blocked by design — they're here for visibility, not for chasing.
   </div>
-
-  <!-- BLOCKED WITH AGING -->
-  <div class="section-title">🚫 Blocked Cards — Sorted by Aging (Business Days)</div>
   <div class="blocked-section">
 
+    <!-- B00781 -->
     <div class="main-card-block critical">
       <div class="main-card-header">
-        <span class="blocked-pill">🚨 CRITICAL</span>
+        <span class="blocked-pill">🚨 TOP PRIORITY</span>
+        <a class="main-card-key" href="https://erpservices.atlassian.net/browse/LUNA-13246" target="_blank">LUNA-13246</a>
+        <span class="main-card-title">B00781 - HPLC | Identification and Purity | Liquid Chromatography</span>
+        <div style="text-align:right;"><div class="main-card-days">7</div><div class="main-card-days-label">blocked subtasks</div></div>
+      </div>
+      <div class="main-card-body">
+        <div class="info-grid">
+          <div class="info-item"><div class="info-label">Status</div><div class="info-value">Blocked Approval</div></div>
+          <div class="info-item"><div class="info-label">Assignee</div><div class="info-value">Ivor Bok</div></div>
+          <div class="info-item"><div class="info-label">Priority</div><div class="info-value">High</div></div>
+          <div class="info-item"><div class="info-label">Days Blocked</div><div class="info-value">5 business days</div></div>
+        </div>
+        <div class="blocker-box">
+          <strong>Root Cause — two problems stacked</strong>
+          <b>1. GEMs are not aligned.</b> On Sept 4, Joseph Weir and Rodrigo Aguilar flagged that the August GEM revisions altered the method design and are missing critical Empower calculation rules. Until Acceleration clarifies those rules, the Design Specs can't be finalised with confidence.
+          <br><br>
+          <b>2. The approvals have no owner.</b> Units were resolved to mg/mL on Sept 1 and the card went to Blocked Approval on Sept 2 pending GDS approvals. The subtask was assigned to Douglas Sims with the note that <i>there is no SME identified to approve any of these consumables and Design Specs</i> — Nicholas Veselka's email did not specify who the approving SME would be, and Douglas has not yet confirmed a reassignment.
+          <br><br>
+          <strong>Net effect:</strong> 7 subtasks are sitting blocked behind an approval chain that currently has nobody authorised to sign it.
+          <br><br>
+          <strong>Ball is with:</strong> Douglas Sims — <b>confirm/reassign the approving SME</b> for the consumables &amp; Design Specs; Acceleration / Joseph Weir — clarify the August GEM calculation rules.
+        </div>
+        <div class="subtask-wrap">
+          <div class="subtask-head"><span>🔒 Blocking subtasks</span><span class="subtask-count">7 blocked</span></div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-40053" target="_blank">LUNA-40053</a>
+            <div class="sub-name">Design Spec: B00781-Drug Substance <span class="sub-tag ds">Drug Substance · Complex</span></div>
+            <div class="sub-assignee">Rodrigo Aguilar</div>
+            <div class="sub-status">Blocked</div>
+          </div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-40611" target="_blank">LUNA-40611</a>
+            <div class="sub-name">GDS Approval of DS: 0.2M Sulfate Buffer w/ACN (82/18) <span class="sub-tag gds">GDS Approval</span></div>
+            <div class="sub-assignee">Douglas Sims</div>
+            <div class="sub-status">Blocked</div>
+          </div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-40904" target="_blank">LUNA-40904</a>
+            <div class="sub-name">Design Spec: B00781-Drug Product Humalog <span class="sub-tag ds">Drug Product · Complex</span></div>
+            <div class="sub-assignee">Rodrigo Aguilar</div>
+            <div class="sub-status">Blocked</div>
+          </div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-47580" target="_blank">LUNA-47580</a>
+            <div class="sub-name">Design Spec: 0.2M Sulfate Buffer pH 2.3 V2 <span class="sub-tag consumable">Consumable Recipe</span></div>
+            <div class="sub-assignee">Kleuber Cardoso</div>
+            <div class="sub-status">Blocked</div>
+          </div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-47581" target="_blank">LUNA-47581</a>
+            <div class="sub-name">Design Spec: 0.2M Sulfate Buffer pH 2.3_Purchased V2 <span class="sub-tag consumable">Consumable Purchased</span></div>
+            <div class="sub-assignee">Kleuber Cardoso</div>
+            <div class="sub-status">Blocked</div>
+          </div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-47582" target="_blank">LUNA-47582</a>
+            <div class="sub-name">GDS Approval of DS: 0.2M Sulfate Buffer pH 2.3 V2 <span class="sub-tag gds">GDS Approval</span></div>
+            <div class="sub-assignee">Kleuber Cardoso</div>
+            <div class="sub-status">Blocked</div>
+          </div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-47583" target="_blank">LUNA-47583</a>
+            <div class="sub-name">GDS Approval of DS: 0.2M Sulfate Buffer pH 2.3_Purchased V2 <span class="sub-tag gds">GDS Approval</span></div>
+            <div class="sub-assignee">Kleuber Cardoso</div>
+            <div class="sub-status">Blocked</div>
+          </div>
+        </div>
+        <div style="margin-top:10px; font-size:11.5px; color:var(--muted);">🚩 Highest subtask blockage in the sprint — 4 of the 7 sit with Kleuber Cardoso and are all 0.2M Sulfate Buffer variants. Clearing that cluster unblocks most of the card.</div>
+      </div>
+    </div>
+
+    <!-- B12995 -->
+    <div class="main-card-block">
+      <div class="main-card-header warn">
+        <span class="blocked-pill warn">🆕 NEW BLOCKER</span>
+        <a class="main-card-key" href="https://erpservices.atlassian.net/browse/LUNA-13307" target="_blank">LUNA-13307</a>
+        <span class="main-card-title">B12995 - Liquid Chromatography</span>
+        <div style="text-align:right;"><div class="main-card-days" style="color:var(--orange);">1</div><div class="main-card-days-label">blocked subtask</div></div>
+      </div>
+      <div class="main-card-body">
+        <div class="info-grid">
+          <div class="info-item"><div class="info-label">Status</div><div class="info-value">Blocked Build</div></div>
+          <div class="info-item"><div class="info-label">Assignee</div><div class="info-value">Rodrigo Aguilar</div></div>
+          <div class="info-item"><div class="info-label">Priority</div><div class="info-value">High</div></div>
+          <div class="info-item"><div class="info-label">Blocked Since</div><div class="info-value">Sept 7, 2026</div></div>
+        </div>
+        <div class="blocker-box">
+          <strong>Root Cause</strong>
+          On Sept 2, Minh Tat (SME) and Kate Camacho (GDS) approved the Design Specs. Rodrigo Aguilar began building in PRE-STG on Sept 7 but immediately halted after discovering <b>missing Empower Reference Parameter Types</b> in the PRE-STG environment. Raquel Bolaños is following up on the environment defect via email.
+          <br><br>
+          <strong>Ball is with:</strong> Raquel Bolaños / System Admin / Empower Platform Team to restore the missing PRE-STG parameter types.
+        </div>
+        <div class="subtask-wrap">
+          <div class="subtask-head"><span>🔒 Blocking subtask</span><span class="subtask-count">1 blocked</span></div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-48138" target="_blank">LUNA-48138</a>
+            <div class="sub-name">Build Master Data Object: B12995 System Suit-Cal Curve <span class="sub-tag consumable">Consumable · Complex</span></div>
+            <div class="sub-assignee">Rodrigo Aguilar</div>
+            <div class="sub-status">Blocked</div>
+          </div>
+        </div>
+        <div style="margin-top:10px; font-size:11.5px; color:var(--muted);">💡 This is an environment issue, not a design issue — once PRE-STG is fixed the build resumes immediately.</div>
+      </div>
+    </div>
+
+    <!-- G1246 -->
+    <div class="main-card-block">
+      <div class="main-card-header warn">
+        <span class="blocked-pill warn">🔗 EXTERNAL DEPENDENCY</span>
+        <a class="main-card-key" href="https://erpservices.atlassian.net/browse/LUNA-13837" target="_blank">LUNA-13837</a>
+        <span class="main-card-title">G1246 - CE | Electrophoresis | Electrophoresis: Sds Gel</span>
+        <div style="text-align:right;"><div class="main-card-days" style="color:var(--orange);">2</div><div class="main-card-days-label">external deps</div></div>
+      </div>
+      <div class="main-card-body">
+        <div class="info-grid">
+          <div class="info-item"><div class="info-label">Status</div><div class="info-value">Blocked Testing</div></div>
+          <div class="info-item"><div class="info-label">Assignee</div><div class="info-value">Daniela Campos</div></div>
+          <div class="info-item"><div class="info-label">Priority</div><div class="info-value">Low</div></div>
+          <div class="info-item"><div class="info-label">Blocked Since</div><div class="info-value">Sept 8, 2026</div></div>
+        </div>
+        <div class="blocker-box">
+          <strong>Root Cause</strong>
+          Formal Visual Verification in STG was completed successfully by Ivette Lopez Blasini on Sept 4. On Sept 8, Daniela Campos moved functional testing to Blocked Testing: formal verification cannot advance until two prerequisite consumables are verified — and both live in <b>other cards</b>, not in G1246's own subtasks.
+          <br><br>
+          <strong>Ball is with:</strong> Verification coordinators/testers on LUNA-13313 and LUNA-13840.
+        </div>
+        <div class="subtask-wrap">
+          <div class="subtask-head"><span>🔗 Blocking dependencies (external cards)</span><span class="subtask-count">2 pending</span></div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-13313" target="_blank">LUNA-13313</a>
+            <div class="sub-name">1M Tris Buffer — in B13227 - Liquid Chromatography <span class="sub-tag consumable">Full Build</span></div>
+            <div class="sub-assignee">—</div>
+            <div class="sub-status draft">Draft Requirements</div>
+          </div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-13840" target="_blank">LUNA-13840</a>
+            <div class="sub-name">CE BF Silica Blank Capillary — in G1283 - CE | Non-Reduced CE <span class="sub-tag consumable">Consumable</span></div>
+            <div class="sub-assignee">—</div>
+            <div class="sub-status">Blocked Build</div>
+          </div>
+        </div>
+        <div style="margin-top:10px; font-size:11.5px; color:var(--muted);">⚠️ LUNA-13313 is still in Draft Requirements — that's the long pole here, and it sits outside Sprint 22.</div>
+      </div>
+    </div>
+
+    <!-- G2535 - EXPECTED -->
+    <div class="main-card-block expected">
+      <div class="main-card-header expected">
+        <span class="blocked-pill expected">😌 EXPECTED — NO ACTION</span>
         <a class="main-card-key" href="https://erpservices.atlassian.net/browse/LUNA-13212" target="_blank">LUNA-13212</a>
         <span class="main-card-title">G2535 - Dissolution</span>
-        <div style="text-align:right;"><div class="main-card-days">15</div><div class="main-card-days-label">business days</div></div>
+        <div style="text-align:right;"><div class="main-card-days expected">&gt;20</div><div class="main-card-days-label">business days</div></div>
       </div>
       <div class="main-card-body">
         <div class="info-grid">
-          <div class="info-item"><div class="info-label">Assignee</div><div class="info-value">Karolina Ramos</div></div>
+          <div class="info-item"><div class="info-label">Status</div><div class="info-value">Blocked Approval</div></div>
+          <div class="info-item"><div class="info-label">Assignee</div><div class="info-value">Rodrigo Aguilar</div></div>
           <div class="info-item"><div class="info-label">Priority</div><div class="info-value">Low</div></div>
-          <div class="info-item"><div class="info-label">Blocked Since</div><div class="info-value">Aug 11, 2026</div></div>
-          <div class="info-item"><div class="info-label">Mismatch</div><div class="info-value" style="color:var(--yellow);">⚠️ Yes</div></div>
+          <div class="info-item"><div class="info-label">Unblocks</div><div class="info-value">Sprint 28</div></div>
         </div>
-        <div class="blocker-box">
-          <strong>Root Cause &amp; Narrative</strong>
-          Aug 20: Rodrigo Aguilar/Kemi Eyinla re-blocked the card, citing dependency on the parent exemplar (B13225 Dissolution HPLC). Aug 31: Ritika Sharma confirmed the Full Build must pause until the parent exemplar's demo is accepted, while the Results Only (RO) package advances in parallel.
+        <div class="blocker-box expected">
+          <strong>Why this is not a concern</strong>
+          The Full Build is blocked by a <b>known, planned dependency</b>: it cannot proceed until parent exemplar <b>B13225</b> lands, which is scheduled for <b>Sprint 28</b> (per Kemi Eyinla and Rodrigo Aguilar). The aging number is high, but it reflects a deliberate sequencing decision — not a stalled conversation or a missing approval.
           <br><br>
-          <strong>Ball is with:</strong> Parent Exemplar Team / Nicole Simpson / Ritika Sharma — deliver and approve the parent exemplar's demo.
+          Meanwhile the <b>Results Only stream is advancing normally</b>: Mateus Dias completed Informal Visual Verification in PRE-STG on Sept 5, and Andressa Lemes submitted the STG migration package on Sept 8.
           <br><br>
-          <strong>Most likely next action:</strong> Formal acceptance of the parent exemplar demo B13225 to release the main method build.
+          <strong>Ball is with:</strong> Exemplar B13225 team (Sprint 28 delivery) — nothing for POD Team 1 to chase this sprint.
         </div>
-        <div style="margin-top:10px; font-size:11.5px; color:var(--muted);">⚠️ Note: although the card is labeled "Blocked Approval," its consumable subtasks (<a href="https://erpservices.atlassian.net/browse/LUNA-43330" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-43330</a>, <a href="https://erpservices.atlassian.net/browse/LUNA-43325" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-43325</a>) are already <b>In Review</b> — real progress is ahead of the label.</div>
+        <div class="subtask-wrap">
+          <div class="subtask-head"><span>🔒 Blocked subtasks (all waiting on the same exemplar)</span><span class="subtask-count grey">3 blocked · expected</span></div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-21803" target="_blank">LUNA-21803</a>
+            <div class="sub-name">Verify Instrument Driver/Type/Field Details Associated with MD Object</div>
+            <div class="sub-assignee">Keith Parsons</div>
+            <div class="sub-status">Blocked</div>
+          </div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-21805" target="_blank">LUNA-21805</a>
+            <div class="sub-name">Design Spec: G2535 <span class="sub-tag ds">Drug Product · Complex</span></div>
+            <div class="sub-assignee">Rodrigo Aguilar</div>
+            <div class="sub-status">Blocked</div>
+          </div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-47412" target="_blank">LUNA-47412</a>
+            <div class="sub-name">Unit Test MDO: 1.12mg/mL Pirtobrutinib Stock STD <span class="sub-tag consumable">Consumable Full Build</span></div>
+            <div class="sub-assignee">Rodrigo Aguilar</div>
+            <div class="sub-status">Blocked</div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="main-card-block">
-      <div class="main-card-header recent">
-        <span class="blocked-pill recent">🟢 RECENT</span>
+    <!-- CC10003 -->
+    <div class="main-card-block expected">
+      <div class="main-card-header expected">
+        <span class="blocked-pill expected">😌 EXPECTED — NO ACTION</span>
         <a class="main-card-key" href="https://erpservices.atlassian.net/browse/LUNA-12437" target="_blank">LUNA-12437</a>
         <span class="main-card-title">CC10003 - Sterility</span>
-        <div style="text-align:right;"><div class="main-card-days recent">3</div><div class="main-card-days-label">business days</div></div>
+        <div style="text-align:right;"><div class="main-card-days expected">10</div><div class="main-card-days-label">business days</div></div>
       </div>
       <div class="main-card-body">
         <div class="info-grid">
-          <div class="info-item"><div class="info-label">Assignee</div><div class="info-value">Michael Gootee</div></div>
+          <div class="info-item"><div class="info-label">Status</div><div class="info-value">Blocked Build</div></div>
+          <div class="info-item"><div class="info-label">Assignee</div><div class="info-value">Renee Barr</div></div>
           <div class="info-item"><div class="info-label">Priority</div><div class="info-value">Highest</div></div>
-          <div class="info-item"><div class="info-label">Blocked Since</div><div class="info-value">Aug 27, 2026</div></div>
-          <div class="info-item"><div class="info-label">Urgency</div><div class="info-value">⚠️ Critical — daily eval.</div></div>
+          <div class="info-item"><div class="info-label">Blocked At</div><div class="info-value">Parent level</div></div>
         </div>
-        <div class="blocker-box">
-          <strong>Root Cause &amp; Narrative</strong>
-          Aug 27: exemplar demo logged and approved by GDS Kate Camacho. Aug 28: Joseph Weir blocked the card after feedback from Bill Carpenter (Site SME) requesting GEM/DS adjustments. Sep 1: final decision expected within hours.
+        <div class="blocker-box expected">
+          <strong>Why this is not a concern</strong>
+          Rodrigo Aguilar completed the PRE-STG build and demo recording in late August, and GDS Kate Camacho approved the demo. On Aug 28, Joseph Weir blocked the card following SME Bill Carpenter's feedback — build rework is deliberately on hold pending RAID/PLT alignment, and Acceleration still needs to confirm Draft vs. Final GEM versions.
           <br><br>
-          <strong>Ball is with:</strong> Michael Gootee / Joseph Weir / Bill Carpenter — define the scope of the rework.
+          The block sits at the <b>parent card by design</b>: it's a governance hold, not a stalled conversation. Nothing underneath is stuck — the demo and SME approval subtasks are actively In Review / In Progress. The 10-day age reflects the decision cadence of PLT/RAID, not neglect.
           <br><br>
-          <strong>Most likely next action:</strong> Ruling on whether GEM update, DS-only update, or neither is required to unblock the build.
+          <strong>Ball is with:</strong> RAID / PLT / Acceleration (Joseph Weir &amp; Michael Gootee) — no chase needed from POD Team 1 this sprint.
         </div>
-      </div>
-    </div>
-
-    <div class="main-card-block">
-      <div class="main-card-header recent">
-        <span class="blocked-pill recent">🟢 RECENT</span>
-        <a class="main-card-key" href="https://erpservices.atlassian.net/browse/LUNA-16083" target="_blank">LUNA-16083</a>
-        <span class="main-card-title">CM01534 - Identity</span>
-        <div style="text-align:right;"><div class="main-card-days recent">2</div><div class="main-card-days-label">business days</div></div>
-      </div>
-      <div class="main-card-body">
-        <div class="info-grid">
-          <div class="info-item"><div class="info-label">Assignee</div><div class="info-value">Kristi Clark</div></div>
-          <div class="info-item"><div class="info-label">Priority</div><div class="info-value">High</div></div>
-          <div class="info-item"><div class="info-label">Blocked Since</div><div class="info-value">Aug 29, 2026</div></div>
-          <div class="info-item"><div class="info-label">Mismatch</div><div class="info-value" style="color:var(--yellow);">⚠️ Yes</div></div>
+        <div class="subtask-wrap">
+          <div class="subtask-head"><span>⚙️ Subtasks — still moving (no blocked subtasks)</span><span class="subtask-count green">0 blocked</span></div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-33108" target="_blank">LUNA-33108</a>
+            <div class="sub-name">Demo Master Data Object: CC10003 <span class="sub-tag ds">Full Build</span></div>
+            <div class="sub-assignee">—</div>
+            <div class="sub-status inreview">In Review</div>
+          </div>
+          <div class="subtask-row">
+            <a class="sub-key" href="https://erpservices.atlassian.net/browse/LUNA-45893" target="_blank">LUNA-45893</a>
+            <div class="sub-name">Site SME / Global Technical SME Approval of Demo MDO: CC10003 <span class="sub-tag ds">Full Build</span></div>
+            <div class="sub-assignee">—</div>
+            <div class="sub-status inprogress">In Progress</div>
+          </div>
         </div>
-        <div class="blocker-box">
-          <strong>Root Cause &amp; Narrative</strong>
-          Aug 29: Kleuber Cardoso corrected the DS after unit testing failures. Aug 31: moved to Blocked Build for lack of GDS sign-off. Sep 1: Kemi Eyinla reported consecutive follow-ups on Teams to Kristi Clark with no response yet.
-          <br><br>
-          <strong>Ball is with:</strong> Kristi Clark (Global Data Steward) — sign off on the updated DS.
-          <br><br>
-          <strong>Most likely next action:</strong> DS approval so Kleuber can finalize unit testing.
-        </div>
-        <div style="margin-top:10px; font-size:11.5px; color:var(--muted);">⚠️ Note: build subtasks (<a href="https://erpservices.atlassian.net/browse/LUNA-45648" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-45648</a>, <a href="https://erpservices.atlassian.net/browse/LUNA-45646" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-45646</a>) are already <b>In Review</b> despite the card's overall Blocked status.</div>
+        <div style="margin-top:10px; font-size:11.5px; color:var(--muted);">💡 Worth mentioning at standup for visibility, but no action required from the POD — the subtasks are <b>not</b> blocked and the hold is purely the parent-level PLT/RAID decision.</div>
       </div>
     </div>
 
   </div>
 
-  <!-- NARRATIVE CARDS: Development / Draft / Promotion -->
-  <div class="section-title">💻 Development / Rework — Narrative Context</div>
+  <!-- NARRATIVE -->
+  <div class="section-title">📋 Everything Else — Narrative Context</div>
   <div class="narrative-grid">
+
+    <div class="narrative-card good-flag">
+      <div class="nc-header">
+        <div><a class="nc-key" href="https://erpservices.atlassian.net/browse/LUNA-15033" target="_blank">LUNA-15033</a><div class="nc-method">G2664 - Liquid Chromatography</div></div>
+        <span class="chip visual">Visual Verification</span>
+      </div>
+      <div class="nc-meta"><span>👤 Ivette Lopez Blasini</span><span>⚡ High</span><span class="sprint-type-tag build">Build Sprint 22</span></div>
+      <div class="nc-narrative"><b>✅ Unblocked Sept 8.</b> The consumable/SME requirements block was resolved and the card transitioned automatically out of Blocked Testing. Andres Esquivel confirmed receipt of the requirement responses. G2664-Results Only migrated successfully to STG and was assigned to Ivette Lopez Blasini for Formal Visual Verification.</div>
+      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Ivette Lopez Blasini (Formal Visual Verification, STG)</div>
+      <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> Complete STG Formal Visual Verification for Results Only</div>
+      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag ok">Positive — block cleared, moving again</span></div>
+    </div>
+
+    <div class="narrative-card mismatch-flag">
+      <div class="nc-header">
+        <div><a class="nc-key" href="https://erpservices.atlassian.net/browse/LUNA-16083" target="_blank">LUNA-16083</a><div class="nc-method">CM01534 - Identity</div></div>
+        <span class="chip progress">Development</span>
+      </div>
+      <div class="nc-meta"><span>👤 Kleuber Cardoso</span><span>⚡ High</span><span class="sprint-type-tag build">Build Sprint 22</span></div>
+      <div class="nc-narrative">On Sept 4, Kleuber applied build fixes and handed the method to Rodrigo Aguilar for Unit Testing. On Sept 5, Rodrigo failed the Unit Test — CM01534 lacked the PASS/FAIL reportable parameter required by Tableau and exemplar methods — and blocked subtask <a href="https://erpservices.atlassian.net/browse/LUNA-46192" target="_blank" style="color:var(--blue);font-weight:700;text-decoration:none;">LUNA-46192</a> (Unit Test MDO: CM01534, Full Build).</div>
+      <div class="nc-row"><span class="nc-icon">🔒</span><span class="nc-label">Blocked sub:</span> <a href="https://erpservices.atlassian.net/browse/LUNA-46192" target="_blank" style="color:var(--blue);font-weight:700;text-decoration:none;">LUNA-46192</a> — Unit Test MDO (Rodrigo Aguilar)</div>
+      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Kleuber Cardoso (add PASS/FAIL reportable parameter)</div>
+      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag stagnant">🚩 Recurring — unit test failed Aug 29 &amp; Sept 5</span></div>
+    </div>
 
     <div class="narrative-card">
       <div class="nc-header">
-        <div><a class="nc-key" href="https://erpservices.atlassian.net/browse/LUNA-13307" target="_blank">LUNA-13307</a><div class="nc-method">B12995 - Liquid Chromatography</div></div>
-        <span class="chip approve">Approve Requirements</span>
+        <div><a class="nc-key" href="https://erpservices.atlassian.net/browse/LUNA-13256" target="_blank">LUNA-13256</a><div class="nc-method">B03622 - HPLC | HPLC Purity</div></div>
+        <span class="chip rework">Master Data Rework</span>
       </div>
-      <div class="nc-meta"><span>👤 Rodrigo Aguilar</span><span>⚡ High</span><span class="sprint-type-tag approval">Approval Sprint</span></div>
-      <div class="nc-narrative">Design Specs are ready; SME review with Minh scheduled for Wednesday. Card unblocked and advanced to requirements approval.</div>
-      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Minh / SME</div>
-      <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> DS review &amp; sign-off on Wednesday</div>
-      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag ok">None — smooth progress</span></div>
+      <div class="nc-meta"><span>👤 Kleuber Cardoso</span><span>⚡ Highest</span><span class="sprint-type-tag build">Build Sprint 22</span></div>
+      <div class="nc-narrative">Kleuber resolved build logic and updated Design Specs for consumable recipes in early September. On Sept 7, Rodrigo Aguilar completed Unit Testing for the 1.0mg/mL L-Arginine Buffer and 9.6N HCl recipes, left minor non-blocking notes, and reassigned the card back to Kleuber.</div>
+      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Kleuber Cardoso (minor unit test notes)</div>
+      <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> Submit consumable recipes for Peer Review / Verification</div>
+      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag ok">None — unit testing passed Sept 7</span></div>
+    </div>
+
+    <div class="narrative-card">
+      <div class="nc-header">
+        <div><a class="nc-key" href="https://erpservices.atlassian.net/browse/LUNA-13270" target="_blank">LUNA-13270</a><div class="nc-method">B07229 - Titration (inclusive of KF)</div></div>
+        <span class="chip rework">Master Data Rework</span>
+      </div>
+      <div class="nc-meta"><span>👤 Gabriela Campos</span><span>⚡ High</span><span class="sprint-type-tag build">Build Sprint 22</span></div>
+      <div class="nc-narrative">Following Design Spec feedback from GDS Nicole Skaggs in mid-August, Andres Esquivel reassigned the card on Sept 4 to Gabriela Campos after builder availability changes. On Sept 8, Gabriela confirmed she is actively executing the required Design Spec corrections for B07229 (Complex).</div>
+      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Gabriela Campos</div>
+      <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> Submit corrected DS v2 for SME (Christopher Lambert) and GDS review</div>
+      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag ok">None — active rework resumed Sept 8</span></div>
     </div>
 
     <div class="narrative-card">
       <div class="nc-header">
         <div><a class="nc-key" href="https://erpservices.atlassian.net/browse/LUNA-13789" target="_blank">LUNA-13789</a><div class="nc-method">CM02496 - Titrimetric</div></div>
-        <span class="chip verify">Verification Backlog</span>
+        <span class="chip visual">Visual Verification</span>
       </div>
-      <div class="nc-meta"><span>👤 Rodrigo Aguilar</span><span>⚡ Highest</span><span class="sprint-type-tag build">Build Sprint</span></div>
-      <div class="nc-narrative">Rodrigo took over the method while Gabriela Campos is on PTO. Build completed and sent to Peer Review with Dareth McKenna.</div>
-      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Dareth McKenna (Peer Review)</div>
-      <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> Peer Review results → migration to STG</div>
-      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag ok">None — clean handoff</span></div>
-    </div>
-
-    <div class="narrative-card mismatch-flag">
-      <div class="nc-header">
-        <div><a class="nc-key" href="https://erpservices.atlassian.net/browse/LUNA-15033" target="_blank">LUNA-15033</a><div class="nc-method">G2664 - Liquid Chromatography</div></div>
-        <span class="chip progress">Development</span>
-      </div>
-      <div class="nc-meta"><span>👤 Caio Pedroso</span><span>⚡ High</span><span class="sprint-type-tag build">Build Sprint</span></div>
-      <div class="nc-narrative">Dareth McKenna completed Peer Review of the Results Only package with no findings. Remaining Design Specs are in development/review by Caio Pedroso and Gabriela Campos.</div>
-      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Caio Pedroso / Gabriela Campos</div>
-      <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> Finish consumable DS and start unit tests</div>
-      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag ok">None</span> · <span class="nc-tag minor">⚠️ Real progress: In Review</span></div>
-    </div>
-
-    <div class="narrative-card mismatch-flag">
-      <div class="nc-header">
-        <div><a class="nc-key" href="https://erpservices.atlassian.net/browse/LUNA-13270" target="_blank">LUNA-13270</a><div class="nc-method">B07229 - Titration</div></div>
-        <span class="chip progress">Development</span>
-      </div>
-      <div class="nc-meta"><span>👤 Gustavo Pereira</span><span>⚡ High</span><span class="sprint-type-tag build">Build Sprint</span></div>
-      <div class="nc-narrative">Gustavo keeps Unit Testing active. Andres Esquivel coordinated (Sep 1) finding a technical reviewer for the MDO's Peer Review.</div>
-      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Andres Esquivel / Gustavo Pereira</div>
-      <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> Confirm technical reviewer for Peer Review</div>
-      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag minor">Minor — coordination in progress</span> · <span class="nc-tag minor">⚠️ Build subtask already Closed</span></div>
-    </div>
-
-    <div class="narrative-card mismatch-flag">
-      <div class="nc-header">
-        <div><a class="nc-key" href="https://erpservices.atlassian.net/browse/LUNA-13256" target="_blank">LUNA-13256</a><div class="nc-method">B03622 - HPLC Purity</div></div>
-        <span class="chip progress">Development</span>
-      </div>
-      <div class="nc-meta"><span>👤 Kleuber Cardoso</span><span>⚡ Highest</span><span class="sprint-type-tag build">Build Sprint</span></div>
-      <div class="nc-narrative">Aug 31: Kleuber started PRE-STAGE construction of 5 consumable/recipe subtasks while gathering analytical info for the main method.</div>
-      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Kleuber Cardoso</div>
-      <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> Finish PRE-STAGE and send consumables to Peer Review</div>
-      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag ok">None</span> · <span class="nc-tag minor">⚠️ Real progress: In Review</span></div>
-    </div>
-
-  </div>
-
-  <div class="section-title">📝 Draft Requirements &amp; 🚀 Promotion — Narrative Context</div>
-  <div class="narrative-grid">
-
-    <div class="narrative-card mismatch-flag">
-      <div class="nc-header">
-        <div><a class="nc-key" href="https://erpservices.atlassian.net/browse/LUNA-13246" target="_blank">LUNA-13246</a><div class="nc-method">B00781 - HPLC ID/Purity</div></div>
-        <span class="chip draft">Draft Requirements</span>
-      </div>
-      <div class="nc-meta"><span>👤 Syed Ali</span><span>⚡ High</span><span class="sprint-type-tag approval">Approval Sprint</span></div>
-      <div class="nc-narrative">Andressa Lemes reassigned to Syed Ali (Sep 1-2); consumables built in PRE-STAGE are ready for Informal Visual Verification.</div>
-      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Syed Ali (Informal Visual Verification)</div>
-      <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> Execute Visual Verification protocol</div>
-      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag minor">⚠️ Minor mismatch — consumables already in Visual Verification</span></div>
+      <div class="nc-meta"><span>👤 Gabriela Campos</span><span>⚡ Highest</span><span class="sprint-type-tag build">Build Sprint 22</span></div>
+      <div class="nc-narrative">CM02496 (Full Build) reached PRE-STG Informal Visual Verification on Sept 4, where Ivette Lopez Blasini reported minor fails on QC Method wording and Specification rules. On Sept 7, Gabriela returned from PTO and confirmed she is applying the required verification fixes.</div>
+      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Gabriela Campos</div>
+      <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> Request re-informal verification from Ivette in PRE-STG</div>
+      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag ok">None — active resolution</span></div>
     </div>
 
     <div class="narrative-card">
       <div class="nc-header">
         <div><a class="nc-key" href="https://erpservices.atlassian.net/browse/LUNA-13267" target="_blank">LUNA-13267</a><div class="nc-method">B06976 - Clarity of Solution</div></div>
-        <span class="chip draft">Draft Requirements</span>
+        <span class="chip approve">Approve Requirements</span>
       </div>
-      <div class="nc-meta"><span>👤 Caio Pedroso</span><span>⚡ High</span><span class="sprint-type-tag approval">Approval Sprint</span></div>
-      <div class="nc-narrative">DS is 100% written; Caio is holding formal issuance pending one last design point with the SME (to avoid a follow-up revision).</div>
-      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> SME / Caio Pedroso</div>
-      <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> SME response and DS upload to Confluence</div>
-      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag ok">Controlled — nothing actually blocked</span></div>
+      <div class="nc-meta"><span>👤 Caio Pedroso</span><span>⚡ High</span><span class="sprint-type-tag approval">Approval Sprint 22</span></div>
+      <div class="nc-narrative">Caio completed Design Spec v1 for B06976 (Full Build) after SME Chris Lambert confirmed conditional branching logic on Aug 31. On Sept 4, he attached DS v1 to subtask LUNA-41977 (In Review) and submitted the main card to Approve Requirements.</div>
+      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Christopher Lambert (SME) &amp; Nannette Umpierre / GDS</div>
+      <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> DS v1 approval so Caio can begin PRE-STG build</div>
+      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag ok">None — active approval routing</span></div>
     </div>
 
-    <div class="narrative-card">
+    <div class="narrative-card good-flag">
       <div class="nc-header">
         <div><a class="nc-key" href="https://erpservices.atlassian.net/browse/LUNA-13231" target="_blank">LUNA-13231</a><div class="nc-method">A06244 - Identity</div></div>
         <span class="chip draft">Draft Requirements</span>
       </div>
-      <div class="nc-meta"><span>👤 Andressa Lemes</span><span>⚡ High</span><span class="sprint-type-tag approval">Approval Sprint</span></div>
-      <div class="nc-narrative">Aug 27: Miles Oden confirmed a "First in Kind" build (agreed with Nicole Simpson), using <a href="https://erpservices.atlassian.net/browse/LUNA-12456" target="_blank" style="color:var(--blue); font-weight:700; text-decoration:none;">LUNA-12456</a> as a reference template (already in PROD).</div>
-      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Andressa Lemes</div>
+      <div class="nc-meta"><span>👤 Andressa Lemes</span><span>⚡ High</span><span class="sprint-type-tag approval">Approval Sprint 22</span></div>
+      <div class="nc-narrative">Miles Oden confirmed a "First in Kind" build (agreed with Nicole Simpson), using LUNA-12456 as a reference template (already in PROD). <b>Update:</b> Andressa Lemes confirmed she is actively working on the Design Spec — the card is no longer idle.</div>
+      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Andressa Lemes (drafting the Design Spec)</div>
       <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> Finish DS draft and submit for informal review</div>
-      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag minor">5 business days without a new comment</span></div>
-    </div>
-
-    <div class="narrative-card">
-      <div class="nc-header">
-        <div><a class="nc-key" href="https://erpservices.atlassian.net/browse/LUNA-13837" target="_blank">LUNA-13837</a><div class="nc-method">G1246 - SDS Gel (Electrophoresis)</div></div>
-        <span class="chip promotion">Promotion</span>
-      </div>
-      <div class="nc-meta"><span>👤 Ivette Lopez Blasini</span><span>⚡ Low</span><span class="sprint-type-tag verification">Verification Sprint</span></div>
-      <div class="nc-narrative">Formal STG verification completed; requested (Aug 31) that Daniela Campos attach the DRS to Confluence for final release.</div>
-      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Daniela Campos / Ivette Lopez Blasini</div>
-      <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> Upload DRS to Confluence → close after PROD migration</div>
-      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag ok">None — administrative close-out</span></div>
-    </div>
-
-    <div class="narrative-card">
-      <div class="nc-header">
-        <div><a class="nc-key" href="https://erpservices.atlassian.net/browse/LUNA-13222" target="_blank">LUNA-13222</a><div class="nc-method">A00031 - Loss on Drying</div></div>
-        <span class="chip verify">Testing</span>
-      </div>
-      <div class="nc-meta"><span>👤 Melissa Ari</span><span>⚡ High</span><span class="sprint-type-tag verification">Verification Sprint</span></div>
-      <div class="nc-narrative">Active verification testing (Testing) underway in the STG environment after completing development.</div>
-      <div class="nc-row"><span class="nc-icon">🏀</span><span class="nc-label">Ball with:</span> Melissa Ari</div>
-      <div class="nc-row"><span class="nc-icon">➡️</span><span class="nc-label">Next step:</span> Finish STG testing protocol and log results</div>
-      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag ok">None — testing in progress</span></div>
+      <div class="nc-row"><span class="nc-icon">📶</span><span class="nc-label">Signal:</span> <span class="nc-tag ok">None — active progress confirmed</span></div>
     </div>
 
   </div>
 
   <div class="footer">
-    Dashboard generated from the Jira "Empower Team 1" filter (25 issues) · Sprint 22 · Updated Sep 1, 2026 · Andres Esquivel, Pod Leader
+    Dashboard generated from the Jira "Empower Team 1" filter, scoped strictly to Sprint 22 (12 cards) · Updated Sept 8, 2026 · Andres Esquivel, Pod Leader
   </div>
-
 </div>
 </body>
 </html>
